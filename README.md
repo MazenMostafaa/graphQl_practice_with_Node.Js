@@ -1,11 +1,11 @@
 ## graphQl_practice_with_Node.Js
 
 #### practicing graphQl tech and apply it with a Node.js simple project.
-# ____________________________________________________________________
+____________________________________________________________________
 
 ## Technologies:-
 #### - Using node.js v18.16.0 and express v4.18.2 module.
-#### - I downloaded two modules else related to our tech (GraphQL) : graphql v16.8.0 , graphql-http v1.22.0.
+#### - I downloaded two modules else are related to our tech (GraphQL) : graphql v16.8.0 , graphql-http v1.22.0.
  ____________________________________________________________________
 
 ## Feature:-
