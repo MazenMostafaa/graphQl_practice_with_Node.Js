@@ -73,8 +73,30 @@ const schema = new GraphQLSchema({
         }
     })
 })
+// ===================== Another Schema: test =================
+const test = new GraphQLSchema({
+    query: new GraphQLObjectType({
+        name: 'mainQuerySchema',
+        description: "desc Test",
+        fields: {
+
+            // API 1
+            test: {
+                type: GraphQLString,
+                resolve: () => {
+                    return "test"
+                }
+            }
+            // API 2
+
+            // API 3
+
+            // ...
+        }
+    })
+})
 
 app.use('/graphql', createHandler({ schema }))
-
+app.use('/test', createHandler({ schema: test }))
 app.get('/', (req, res) => res.send('Hello World!'))
 app.listen(port, () => { console.log(`...Server is running on Port ${port}`); })
