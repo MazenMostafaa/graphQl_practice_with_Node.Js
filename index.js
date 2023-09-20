@@ -1,5 +1,5 @@
 import express from 'express'
-import { GraphQLInt, GraphQLObjectType, GraphQLSchema, GraphQLString, graphql } from 'graphql'
+import { GraphQLInt, GraphQLNonNull, GraphQLObjectType, GraphQLSchema, GraphQLString, graphql } from 'graphql'
 import { createHandler } from 'graphql-http/lib/use/express'
 const app = express()
 const port = 3000 || 5000
@@ -27,22 +27,13 @@ const schema = new GraphQLSchema({
                         age: { type: GraphQLInt },
                     }
                 }),
-                args: {
-                    id: { type: GraphQLInt }
-                },
-                resolve: (__, args) => {
-                    if (args.id == 1) {
-                        return {
-                            name: "mazen",
-                            email: "mazenmostafa047@gmail.com",
-                            age: 22
-                        }
-                    }
+                resolve: () => {
                     return {
-                        name: "",
-                        email: "",
-                        age: 0
+                        name: "mazen",
+                        email: "mazenmostafa047@gmail.com",
+                        age: 22
                     }
+
                 }
 
             }
@@ -66,9 +57,9 @@ const schema = new GraphQLSchema({
                     }
                 }),
                 args: {
-                    name: { type: GraphQLString },
-                    email: { type: GraphQLString },
-                    age: { type: GraphQLInt },
+                    name: { type: new GraphQLNonNull(GraphQLString) },
+                    email: { type: new GraphQLNonNull(GraphQLString) },
+                    age: { type: new GraphQLNonNull(GraphQLInt) },
                 },
                 resolve: (__, args) => {
                     return {
@@ -84,5 +75,6 @@ const schema = new GraphQLSchema({
 })
 
 app.use('/graphql', createHandler({ schema }))
+
 app.get('/', (req, res) => res.send('Hello World!'))
 app.listen(port, () => { console.log(`...Server is running on Port ${port}`); })
