@@ -17,4 +17,4 @@ ____________________________________________________________________
 #### Once you get this project locally and open it on any text editor or IDE, you have to paste this command in your terminal (npm i) to download specific required packages
 #### When you finished the last step ,It's time to run this code paste this command in your terminal (npm start) ,this will build your server and run it automatically.
 #### Finally, test these APIs with GraphQl tech on Postman with the prefix URL: http://localhost:3000/graphql
-
+ ____________________________________________________________________
