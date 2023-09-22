@@ -97,6 +97,6 @@ const test = new GraphQLSchema({
 })
 
 app.use('/graphql', createHandler({ schema }))
-app.use('/test', createHandler({ schema: test }))
+app.use('/graphqlTest', createHandler({ schema: test }))
 app.get('/', (req, res) => res.send('Hello World!'))
 app.listen(port, () => { console.log(`...Server is running on Port ${port}`); })
